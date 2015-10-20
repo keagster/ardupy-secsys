@@ -13,11 +13,9 @@ import subprocess
 
 class Deploy:
     def __init__(self):
-        self.placeholder = None
         self.secure_copy()
 
     def secure_copy(self):
-        self.placeholder = 1
         subprocess.call('putty root@45.32.245.205 -m remotecommands')
         subprocess.call('pscp -r ..\server-component root@devour.solutions:/root/code/python/')
 
