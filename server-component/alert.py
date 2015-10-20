@@ -10,6 +10,7 @@ Server has been pre configured at 45.32.245.71. Will add how to docs once soluti
 import sys
 import logging
 from getpass import getpass
+import settings
 
 from pyxmpp2.jid import JID
 from pyxmpp2.message import Message
@@ -37,12 +38,16 @@ class MyHandler(EventHandler):
     def handle_all(self, event):
         logging.info(u"-- {0}".format(event))
 
-logging.basicConfig(level = logging.INFO) # change to 'DEBUG' to see more
+logging.basicConfig(level = logging.INFO)  # change to 'DEBUG' to see more
 
-your_jid = 'secsys@45.32.245.71'
-your_password = getpass("Your password: ")
-target_jid = 'keags@45.32.245.71'
-message = 'Secsys Alert: Secure Zone 01 has been breached'
+your_jid = settings.users['system']['secsys']
+your_password = getpass("Your password: ")  # [0] Secure method required to supply pass in an automated way
+target_jid = settings.users['administrators']['keags']
+# [0] Require a solution to automate the way this message gets generated to specify the following
+#        - Secsys Alert: Sensor [0-10] Has been tripped
+#        - Secsys Alert: Workshop has been entered by authorized user
+#        - Secsys Alert: Failed to communicate with System for more than x(time)
+message = 'Secsys Alert: This is a test dev message'
 
 if sys.version_info.major < 3:
     your_jid = your_jid.decode("utf-8")
