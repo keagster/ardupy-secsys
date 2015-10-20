@@ -1,4 +1,8 @@
 // Board Test file
+// We have killed a board while wiring the relays :(
+// After replacing 328p this confirms functionality
+// Once Brodie has his own board a test fixture will be created to test all GPIO's
+
 int led = 13;
 
 void setup() {
