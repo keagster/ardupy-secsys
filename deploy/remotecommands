@@ -1,0 +1,2 @@
+sudo rm -r /root/code/python/server-component
+sudo mkdir /root/code/python/server-component
