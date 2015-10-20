@@ -9,3 +9,5 @@ The project is split into three components.
     - Hold all code for raspberrypi and GPIO setup
 3. server-component
     - Holds server configuration documentation, scripts and code Centos7 (doc to be added for ubuntu)
+
+Test Change for Brodie
