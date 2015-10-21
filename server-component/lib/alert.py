@@ -10,7 +10,7 @@ Server has been pre configured at 45.32.245.71. Will add how to docs once soluti
 import sys
 import logging
 from getpass import getpass
-import settings as settings_file  # must be used as settings_file due to XMPPSettings conflict
+import lib.settings as settings_file  # must be used as settings_file due to XMPPSettings conflict
 
 from pyxmpp2.jid import JID
 from pyxmpp2.message import Message
