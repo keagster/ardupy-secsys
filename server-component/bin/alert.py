@@ -45,7 +45,7 @@ your_password = getpass("Your password: ")  # [0] Secure method required to supp
 # target_jid = settings.users['administrators']['keags']
 # [0] Require a solution to automate the way this message gets generated to specify the following
 #        - Secsys Alert: Sensor [0-10] Has been tripped
-#        - Secsys Alert: Workshop has been entered by authorized user
+#        - Secsys Alert: Facility has been entered by authorized user
 #        - Secsys Alert: Failed to communicate with System for more than x(time)
 message = 'Secsys Alert: This is a test dev message'
 
