@@ -1,12 +1,21 @@
 import os
 import RPi.GPIO as gpio
 import lib.alert as alert
+import lib.settings as settings_file
+from getpass import getpass
 from threading import Thread
 
 
 class StartUp:
     def __init__(self):
-        self.place_holder = 'First Run Functions to go here'
+        self.xmpp_password = ''
+        
+        self.start_security()
+        
+    def start_security(self):
+        self.xmpp_password = getpass('XMPP Password: ')
+        # after getting the pass save it to settings file for access from other classes in the service bus
+        
 
 class MainService:
     def __init__(self):
