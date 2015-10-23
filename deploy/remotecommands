@@ -1,2 +1,2 @@
-sudo rm -r /root/code/python/server-component
-sudo mkdir /root/code/python/server-component
+sudo rm -r /home/pi/git/server-component
+sudo mkdir /home/pi/git/server-component

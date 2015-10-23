@@ -7,6 +7,7 @@ Should we require to store secure information a database will have to be impleme
 # [0] Add user groups or OU's when the user base becomes large and requires Zone split
 #     e.g. Brittany and Keagan get notification pertaining to just their apartment if a whole building is running Secsys
 
+# Remote and local server list
 servers = {
     'primary': '45.32.245.71',
     'raspberrypi': '10.0.0.20'  # Statically assigned locally
@@ -25,3 +26,6 @@ users = {
         'brittany': 'brittany@' + str(servers['primary'])
     }
 }
+
+# Temp Password Store
+passwords = {'xmpp_password': ''}

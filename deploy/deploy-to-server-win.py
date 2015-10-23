@@ -16,8 +16,8 @@ class Deploy:
         self.secure_copy()
 
     def secure_copy(self):
-        subprocess.call('putty root@45.32.245.205 -m remotecommands')
-        subprocess.call('pscp -r ..\server-component root@devour.solutions:/root/code/python/')
+        subprocess.call('putty pi@192.168.42.121 -m remotecommands')
+        subprocess.call('pscp -r ..\server-component pi@192.168.42.121:/home/pi/git/server-component')
 
 
 if __name__ == '__main__':

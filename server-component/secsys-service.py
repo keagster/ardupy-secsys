@@ -15,11 +15,13 @@ class StartUp:
     def start_security(self):
         self.xmpp_password = getpass('XMPP Password: ')
         # after getting the pass save it to settings file for access from other classes in the service bus
+        settings_file.passwords['xmpp_password'] = str(self.xmpp_password)
         
 
 class MainService:
     def __init__(self):
         self.gpio_state = None
+        self.xmpp_password = settings_file.passwords['xmpp_password']
 
         self.gpio_mon_thread()
 
@@ -34,7 +36,9 @@ class MainService:
         while 1:
             if gpio.input(21) == 1:
                 alert.SendMessage('SecSys: GPIO Service Trigger SendMessage() I/O')
+                break
 
 
 if __name__ == '__main__':
+    StartUp()
     MainService()
