@@ -45,7 +45,7 @@ class SendMessage:
     def __init__(self, arg_message):
         self.message = str(arg_message)
         self.your_jid = settings_file.users['system']['secsys']
-        self.your_password = getpass()
+        self.your_password = settings_file.passwords['xmpp_password']
         self.target_jid = ''
 
         self.submit()
