@@ -1,5 +1,5 @@
 # ardupy-secsys
-A small security system project to help teach my little brother Git, Arduino and Python
+Security and Home automation
 
 The project is split into three components.
 
