@@ -1,3 +1,6 @@
 # IDE Related files from PyCharm
 .idea
 .idea/
+
+# Python Generated Files
+.pyc
