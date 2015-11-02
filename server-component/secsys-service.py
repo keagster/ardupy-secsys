@@ -2,6 +2,7 @@ import subprocess
 import time
 import RPi.GPIO as gpio
 import lib.alert as alert
+import api.api_service as api_service
 import lib.settings as settings_file
 from getpass import getpass
 from threading import Thread
@@ -10,15 +11,33 @@ from threading import Thread
 class StartUp:
     def __init__(self):
         self.xmpp_password = ''
-        
+        # Start initial security prompts and any other input required
         self.start_security()
+        # Start the API or secsys-webui and other components
+        StartApi()
+        # Start Main to start live monitoring of the GPIO's
+        # Main will soon be replaced allowing for every feature to be developed and
+        # managed through individual class's
+        MainService()
         
     def start_security(self):
         self.xmpp_password = getpass('XMPP Password: ')
         # after getting the pass save it to settings file for access from other classes in the service bus
         settings_file.passwords['xmpp_password'] = str(self.xmpp_password)
-        subprocess.call('')
         
+
+class StartApi:
+    def __init__(self):
+        self.io = ''
+        self.start_api_thread()
+
+    def start_api_thread(self):
+        start_api_thread_run = Thread(target=self.start_api)
+        start_api_thread_run.start()
+
+    def start_api(self):
+        api_service()
+
 
 class MainService:
     def __init__(self):
@@ -58,4 +77,3 @@ class GarageRemote:
 
 if __name__ == '__main__':
     StartUp()
-    MainService()
