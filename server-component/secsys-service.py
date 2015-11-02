@@ -53,7 +53,7 @@ class GarageRemote:
         remote_door_thread_run = Thread(self.remote_door)
         remote_door_thread_run.start()
 
-    def remote_door(self):
+    # def remote_door(self):
 
 
 if __name__ == '__main__':
