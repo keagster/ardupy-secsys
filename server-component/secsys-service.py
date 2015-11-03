@@ -1,4 +1,3 @@
-import subprocess
 import time
 import RPi.GPIO as gpio
 import lib.alert as alert
@@ -13,7 +12,7 @@ class StartUp:
         self.xmpp_password = ''
         # Start initial security prompts and any other input required
         self.start_security()
-        # Start the API or secsys-webui and other components
+        # Start the API or secsys-webui and other components API dependant components
         StartApi()
         # Start Main to start live monitoring of the GPIO's
         # Main will soon be replaced allowing for every feature to be developed and
@@ -67,12 +66,18 @@ class MainService:
 class GarageRemote:
     def __init__(self):
         self.door_state = None
+        self.api_action_place_holder = None
 
     def remote_door_thread(self):
         remote_door_thread_run = Thread(self.remote_door)
         remote_door_thread_run.start()
 
-    # def remote_door(self):
+    def remote_door(self):
+        gpio.setup(20, gpio.OUT)
+        if self.api_action_place_holder == 0:
+            print('Activate Door Button')
+        else:
+            print('Dont if API does not work or key is wrong more detail will be added')
 
 
 if __name__ == '__main__':
